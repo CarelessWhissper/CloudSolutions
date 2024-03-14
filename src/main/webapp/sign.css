@@ -1,0 +1,66 @@
+body {
+    background-color: #92C7CF; /* Light blue background */
+}
+
+.container {
+    background-color: #FFF8DC; /* Light goldenrod yellow container background */
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+h2 {
+    color: #008080; /* Teal heading color */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #92C7CF;
+    padding: 20px 0;
+
+    width: 100%;
+    bottom: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff; /* Text color for the footer content */
+}
+
+.footer-content p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.social-icons a {
+    color: #fff; /* Color for the social media icons */
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.social-icons a:hover {
+    color: #f0f0f0; /* Change color on hover */
+}
+/* Fixed footer */
+#myFooter2 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Adjust as needed */
+    padding: 20px 0; /* Adjust padding as needed */
+    text-align: center;
+}
+
+/* Give space to the review section */
+#leaveReview {
+    margin-bottom: 100px; /* Adjust as needed */
+}

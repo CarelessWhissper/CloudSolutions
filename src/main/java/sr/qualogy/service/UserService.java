@@ -1,24 +1,49 @@
 package sr.qualogy.service;
 
+
+
 import sr.qualogy.configuration.JPAConfiguration;
 import sr.qualogy.entity.User;
-import sr.qualogy.repository.WerknemerRepository;
+import sr.qualogy.repository.UserRepository;
 
 import java.util.List;
 
-public class WerknemerService {
+public class UserService {
 
-    private final WerknemerRepository werknemerRepository;
+    private final UserRepository userRepository;
 
-    public WerknemerService() {
-        this.werknemerRepository = new WerknemerRepository(JPAConfiguration.getEntityManager());
+    public UserService() {
+        this.userRepository = new UserRepository(JPAConfiguration.getEntityManager());
     }
 
-    public List<User> getWerknemers(){
-        return werknemerRepository.getWerknemers();
+    public List<User> getUsers() {
+        return userRepository.getUsers();
     }
 
-    public User saveWerknemer(User user) {
-        return werknemerRepository.saveWerknemer(user);
+    public User getUserById(Integer id) {
+        return userRepository.getUserById(id);
+    }
+
+    public User saveUser(User user) {
+        return userRepository.saveUser(user);
+    }
+
+    public void deleteUserById(Integer id) {
+        userRepository.deleteUserById(id);
+    }
+
+    public User updateUser(User user) {
+        return userRepository.updateUser(user);
+    }
+
+    public User authenticateUser(String email, String password) {
+        // Fetch user by email
+        User user = userRepository.getUserByEmail(email);
+        if (user != null && user.getPassword().equals(password)) {
+            // If user exists and passwords match, return the authenticated user
+            return user;
+        }
+        return null; // Authentication failed
     }
 }
+

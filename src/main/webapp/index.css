@@ -1,0 +1,121 @@
+body{
+    background-color: #FBF9F1;
+}
+
+
+section{
+    padding:0.1%;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card1,
+.card2,
+.card3 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow to cards */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+#travel-tips {
+    background-color: #F2F2F2; /* Light gray background */
+    padding: 5rem 0; /* Adjust padding as needed */
+}
+
+
+
+
+
+footer {
+    background-color: #92C7CF;
+    padding: 20px 0;
+
+    width: 100%;
+    bottom: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff; /* Text color for the footer content */
+}
+
+.footer-content p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.social-icons a {
+    color: #fff; /* Color for the social media icons */
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.social-icons a:hover {
+    color: #f0f0f0; /* Change color on hover */
+}
+
+#myFooter{
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #92C7CF;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+
+}
+
+#user-table{
+    padding: 15px;
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 10px 0;
+    background-color: #007bff; /* Change to your preferred color */
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff; /* Change to your preferred color */
+}
+
+/* Table Styling */
+.table {
+    font-size: 16px;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Alternate row color */
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #f8f9fa; /* Change to your preferred color */
+}

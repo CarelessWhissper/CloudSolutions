@@ -1,31 +1,58 @@
 package sr.qualogy.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sr.qualogy.entity.Review;
 
 @Entity
-public class Werknemer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
     public String naam;
 
-    public String extensie;
-    public String telefoon;
+    public String email;
+    public String phoneNumber;
 
-    public Werknemer(Integer id, String naam, String achternaam, String extensie, String telefoon) {
+    public String password;
+
+    public User(Integer id, String naam, String achternaam, String email, String phoneNumber,String password) {
         this.id = id;
         this.naam = naam;
 
-        this.extensie = extensie;
-        this.telefoon = telefoon;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
-    public Werknemer() {
+    public User() {
 
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Review> reviews = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservations;
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
     public Integer getId() {
@@ -48,19 +75,27 @@ public class Werknemer {
 
 
 
-    public String getExtensie() {
-        return extensie;
+    public String getEmail() {
+        return email;
     }
 
-    public void setExtensie(String extensie) {
-        this.extensie = extensie;
+    public void setEmail(String extensie) {
+        this.email = extensie;
     }
 
-    public String getTelefoon() {
-        return telefoon;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTelefoon(String telefoon) {
-        this.telefoon = telefoon;
+    public void setPhoneNumber(String telefoon) {
+        this.phoneNumber = telefoon;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

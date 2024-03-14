@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
-  <artifactId>werknemer-cloud-solution</artifactId>
+  <artifactId>user-cloud-solution</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>werknemer-cloud-solution Maven Webapp</name>
+  <name>user-cloud-solution Maven Webapp</name>
 
   <dependencies>
     <dependency>
@@ -79,7 +79,7 @@
 
 
   <build>
-    <finalName>werknemer-cloud-solution</finalName>
+    <finalName>user-cloud-solution</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

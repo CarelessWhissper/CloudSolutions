@@ -1,32 +1,66 @@
 package sr.qualogy.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 import sr.qualogy.entity.User;
 
 import java.util.List;
 
-public class WerknemerRepository {
+public class UserRepository {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
-    public WerknemerRepository(EntityManager entityManager) {
+    public UserRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public User saveWerknemer(User user){
+    public User saveUser(User user) {
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
-
         return user;
     }
 
-    public List<User> getWerknemers() {
-        String sql = "select w from User w";
-        TypedQuery<User> typedQuery = entityManager.createQuery(sql, User.class);
-        List<User> users = typedQuery.getResultList();
-
-        return users;
+    public List<User> getUsers() {
+        String sql = "SELECT u FROM User u";
+        return entityManager.createQuery(sql, User.class).getResultList();
     }
+
+    public User getUserById(int id) {
+        return entityManager.find(User.class, id);
+    }
+
+    public void deleteUserById(int id) {
+        entityManager.getTransaction().begin();
+        User user = entityManager.find(User.class, id);
+        if (user != null) {
+            entityManager.remove(user);
+        }
+        entityManager.getTransaction().commit();
+    }
+
+    public User updateUser(User updatedUser) {
+        entityManager.getTransaction().begin();
+        User user = entityManager.find(User.class, updatedUser.getId());
+        if (user != null) {
+            user.setNaam(updatedUser.getNaam());
+            user.setEmail(updatedUser.getEmail());
+            user.setPhoneNumber(updatedUser.getPhoneNumber());
+
+        }
+        entityManager.getTransaction().commit();
+        return user;
+    }
+
+    public User getUserByEmail(String email) {
+        String sql = "SELECT u FROM User u WHERE u.email = :email";
+        return entityManager.createQuery(sql, User.class)
+                .setParameter("email", email)
+                .getResultList()
+                .stream()
+                .findFirst()
+                .orElse(null);
+    }
+
+
+
 }
