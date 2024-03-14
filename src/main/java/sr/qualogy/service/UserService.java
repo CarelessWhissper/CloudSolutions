@@ -1,8 +1,7 @@
 package sr.qualogy.service;
 
-import jakarta.persistence.EntityManager;
 import sr.qualogy.configuration.JPAConfiguration;
-import sr.qualogy.entity.Werknemer;
+import sr.qualogy.entity.User;
 import sr.qualogy.repository.WerknemerRepository;
 
 import java.util.List;
@@ -15,11 +14,11 @@ public class WerknemerService {
         this.werknemerRepository = new WerknemerRepository(JPAConfiguration.getEntityManager());
     }
 
-    public List<Werknemer> getWerknemers(){
+    public List<User> getWerknemers(){
         return werknemerRepository.getWerknemers();
     }
 
-    public Werknemer saveWerknemer(Werknemer werknemer) {
-        return werknemerRepository.saveWerknemer(werknemer);
+    public User saveWerknemer(User user) {
+        return werknemerRepository.saveWerknemer(user);
     }
 }

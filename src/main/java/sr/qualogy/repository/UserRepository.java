@@ -2,7 +2,7 @@ package sr.qualogy.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import sr.qualogy.entity.Werknemer;
+import sr.qualogy.entity.User;
 
 import java.util.List;
 
@@ -14,19 +14,19 @@ public class WerknemerRepository {
         this.entityManager = entityManager;
     }
 
-    public Werknemer saveWerknemer(Werknemer werknemer){
+    public User saveWerknemer(User user){
         entityManager.getTransaction().begin();
-        entityManager.persist(werknemer);
+        entityManager.persist(user);
         entityManager.getTransaction().commit();
 
-        return werknemer;
+        return user;
     }
 
-    public List<Werknemer> getWerknemers() {
-        String sql = "select w from Werknemer w";
-        TypedQuery<Werknemer> typedQuery = entityManager.createQuery(sql, Werknemer.class);
-        List<Werknemer> werknemers = typedQuery.getResultList();
+    public List<User> getWerknemers() {
+        String sql = "select w from User w";
+        TypedQuery<User> typedQuery = entityManager.createQuery(sql, User.class);
+        List<User> users = typedQuery.getResultList();
 
-        return werknemers;
+        return users;
     }
 }

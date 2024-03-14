@@ -3,7 +3,7 @@ package sr.qualogy.controller;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import sr.qualogy.entity.Werknemer;
+import sr.qualogy.entity.User;
 import sr.qualogy.service.WerknemerService;
 
 import java.util.List;
@@ -26,15 +26,15 @@ public class WerknemerController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Werknemer> getWerknemers(){
+    public List<User> getWerknemers(){
         return werknemerService.getWerknemers();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response saveWerknemer(Werknemer werknemer) {
-        werknemer = werknemerService.saveWerknemer(werknemer);
-        return Response.ok(werknemer, MediaType.APPLICATION_JSON_TYPE).build();
+    public Response saveWerknemer(User user) {
+        user = werknemerService.saveWerknemer(user);
+        return Response.ok(user, MediaType.APPLICATION_JSON_TYPE).build();
     }
 }

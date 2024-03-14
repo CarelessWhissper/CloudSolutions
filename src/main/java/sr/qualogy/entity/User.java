@@ -11,15 +11,15 @@ public class Werknemer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
-    public String voornaam;
-    public String achternaam;
+    public String naam;
+
     public String extensie;
     public String telefoon;
 
-    public Werknemer(Integer id, String voornaam, String achternaam, String extensie, String telefoon) {
+    public Werknemer(Integer id, String naam, String achternaam, String extensie, String telefoon) {
         this.id = id;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+        this.naam = naam;
+
         this.extensie = extensie;
         this.telefoon = telefoon;
     }
@@ -36,21 +36,17 @@ public class Werknemer {
         this.id = id;
     }
 
-    public String getVoornaam() {
-        return voornaam;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
+    public void setNaam(String voornaam) {
+        this.naam = voornaam;
     }
 
-    public String getAchternaam() {
-        return achternaam;
-    }
 
-    public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
-    }
+
+
 
     public String getExtensie() {
         return extensie;
